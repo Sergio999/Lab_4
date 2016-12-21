@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Digital_elements
+class DigitalElements
    {
     public:
 	virtual double signal()
@@ -17,7 +17,7 @@ class Digital_elements
 	}
    };
 
-class Nounters : public Digital_elements
+class Nounters : public DigitalElements
 {
 public:
 
@@ -31,7 +31,7 @@ public:
 	}
 };
 
-class Binary_counters : public Nounters
+class BinaryCounters : public Nounters
 {
 public:
 	int get()
@@ -52,7 +52,7 @@ private:
 	int number_sign_input, coefficient_bin_count, volume;
 };
 
-class Binary_decimal_counters : public Nounters
+class BinaryDecimalCounters : public Nounters
 {
 public:
 	int get()
@@ -72,7 +72,7 @@ public:
 	   int number_sign_input1, coefficient_bin_des_count, volume1;
 };
 
-class  reversing_counters : public Nounters
+class  ReversingCounters : public Nounters
 {
 public:
 	int get()
@@ -94,7 +94,7 @@ private:
 	int number_sign_input, coefficient_rev_count, view_standings, sum;
 };
 
-class Triggers : Digital_elements
+class Triggers : DigitalElements
 {
 public:
 	virtual double signal()
@@ -107,7 +107,7 @@ public:
 	}
 };
 
-class D_triggers : public Triggers
+class DTriggers : public Triggers
 	{
 	public:
 		int get()
@@ -129,7 +129,7 @@ class D_triggers : public Triggers
 		int number_sign_input, coefficient_rev_count, kil_vxody, sum;
 	};
 
-	class RS_triggers : public Triggers
+	class RSTriggers : public Triggers
 	{
 	public:
 		int get()
@@ -152,7 +152,7 @@ class D_triggers : public Triggers
 		int number_sign_input, coeficient_rev_count, kil_vxody, sum;
 	};
 
-	class Registers : public Digital_elements
+	class Registers : public DigitalElements
 	{
 	public:
 		virtual double signal()
@@ -186,7 +186,7 @@ class D_triggers : public Triggers
 		int number_sign_input, coefficient_rev_count, kil_vxody;
 	};
 
-	class shifting_registers : public Registers
+	class ShiftingRegisters : public Registers
 	{
 	public:
 		virtual double signal()
@@ -210,7 +210,7 @@ class D_triggers : public Triggers
 		cout << "4. D-trigger" << endl;
 		cout << "5. RS-trigger" << endl;
 		cout << "6. multiplexer" << endl;
-		cout << "7. shifting registers" << endl;
+		cout << "7. hifting registers" << endl;
 
 		int choise;
 		cin >> choise;
@@ -252,7 +252,7 @@ class D_triggers : public Triggers
 		}
 		else if (choise == 7)
 		{
-			Registers *ptr7 = new  shifting_registers;
+			Registers *ptr7 = new  ShiftingRegisters;
 			ptr7->get();
 			cout << (ptr7->Signal()) << endl;
 		}
