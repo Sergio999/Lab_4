@@ -7,11 +7,11 @@ using namespace std;
 class Digital_elements
    {
     public:
-	virtual double Signal()
+	virtual double signal()
 	{ 
 	  return 0;
 	}
-	virtual int Get()
+	virtual int get()
 	{
 	  return 0;
 	}
@@ -21,86 +21,87 @@ class Nounters : public Digital_elements
 {
 public:
 
-	virtual double Signal()
+	virtual double signal()
 	{
 	   return 0;
 	}
-	virtual int Get()
+	virtual int get()
 	{
            return 0;
 	}
 };
 
-class binary_counters : public Nounters
+class Binary_counters : public Nounters
 {
 public:
-	int Get()
+	int get()
+	
 	{
 		cout << "Signal number coming inlet :";
-		cin >> NumberSignInput;
+		cin >> number_sign_input;
 		cout << "coefficient of binary counter :";
-		cin >> CoefBinCount;
-		Volume = NumberSignInput*KoefBinCount;
+		cin >> coef_bin_count;
+		volume = number_sign_input*coeficient_bin_count;
 		return 0;
 	}
-	double Signal()
+	double signal()
 	{
-		return Volume;
+		return volume;
 	}
 private:
-	int NumSignInput, CoefficientBinCount, Volume;
+	int number_sign_input, coefficient_bin_count, volume;
 };
 
-class binary_decimal_counters : public Nounters
+class Binary_decimal_counters : public Nounters
 {
 public:
-	int Get()
+	int get()
 	{
 	cout << "Signal number coming inlet :";
-	cin >> NumberSignInput1;
+	cin >> number_sign_input1;
 	cout << "coefficient of binary counter :";
-	cin >> KoefBinDesCount;
-	Volume1 = NumberSignInput1*CoefBinDesCount;
+	cin >> coefficient_bin_des_count;
+	volume1 = number_sign_input1*coef_bin_des_count;
 		return 0;
 	}
-   double Signal()
+   double signal()
 	{
-		return Volume1;
+		return volume1;
 	}
    private:
-	   int NumSignInput1, CoefficientBinDesCount, Volume1;
+	   int number_sign_input1, coefficient_bin_des_count, volume1;
 };
 
 class  reversing_counters : public Nounters
 {
 public:
-	int Get()
+	int get()
 	{
 		cout << "Signal number coming inlet :";
-		cin >> NumSignInput;
+		cin >> number_sign_input;
 		cout << "Coefficient of reversible counter :";
-		cin >> CoefficientRevCount;
+		cin >> coefficient_rev_count;
 		cout << "Entrances signals :";
-		cin >> ViewStandings;
-		Suma = (NumberSignInput*CoefficientRevCount)*ViewStandings;
+		cin >> view_standings;
+		Suma = (number_sign_input*coefficient_rev_count)*view_standings;
 		return 0;
 	}
-	double Signal()
+	double signal()
 	{
-		return Sum;
+		return sum;
 	}
 private:
-	int NumSignInput, CoefficientRevCount, ViewStandings, Sum;
+	int number_sign_input, coefficient_rev_count, view_standings, sum;
 };
 
 class Triggers : Digital_elements
 {
 public:
-	virtual double Signal()
+	virtual double signal()
 	{
 		return 0;
 	}
-	virtual int Get()
+	virtual int get()
 	{
 		return 0;
 	}
@@ -109,55 +110,56 @@ public:
 class D_triggers : public Triggers
 	{
 	public:
-		int Get()
+		int get()
 		{
 			cout << "delay signal at the input :";
-			cin >> NumberSignInput;
+			cin >> number_sign_input;
 			cout << "Coefficient of delay in D-trigger :";
-			cin >> CoefficientRevCount;
+			cin >> coefficient_rev_count;
 			cout << "Number of entrances in trigger :";
-			cin >> KilVxody;;
-			Suma = (NumSignInput*KoefRevCount)*KilVxody;;
+			cin >> kil_vxody;;
+			Suma = (number_sign_input*coefficient_rev_count)*kil_vxody;;
 			return 0;
 		}
-		double Signal()
+		double signal()
 		{
-			return Sum;
+			return sum;
 		}
 	private:
-		int NumberSignInput, CoefficientRevCount, KilVxody, Sum;
+		int number_sign_input, coefficient_rev_count, kil_vxody, sum;
 	};
 
 	class RS_triggers : public Triggers
 	{
 	public:
-		int Get()
+		int get()
 		{
-			cout << "delay signal at the input:";
-			cin >> NumberSignInput;
+		        cout << "delay signal at the input :";
+			cin >> number_sign_input;
 			cout << "delay signals in RS-trigger :";
-			cin >> CoefficientRevCount;
+			cin >> coefficient_rev_count;
 			cout << "Number of entrances in trigger :";
-			cin >> KilVxody;;
-			Suma = (NumberSignInput*CoefficientRevCount)*KilVxody;;
+			cin >> kil_vxody;;
+			Suma = (number_sign_input*coefficient_rev_count)*kil_vxody;;
 			return 0;
+			
 		}
-		double Signal()
+		double signal()
 		{
-			return Sum;
+			return sum;
 		}
 	private:
-		int NumberSignInput, CoeficientRevCount, KilVxody, Sum;
+		int number_sign_input, coeficient_rev_count, kil_vxody, sum;
 	};
 
 	class Registers : public Digital_elements
 	{
 	public:
-		virtual double Signal()
+		virtual double signal()
 		{
 			return 0;
 		}
-		virtual int Get()
+		virtual int get()
 		{
 			return 0;
 		}
@@ -166,32 +168,32 @@ class D_triggers : public Triggers
 	class multiplexers : public Registers
 	{
 	public:
-		int Get()
+		int get()
 		{
 			cout << " Number of entrances in multiplexor :";
-			cin >> NumberSignInput;
+			cin >> number_sign_input;
 			cout << "Number of exits in multiplexor :";
-			cin >> CoefficientRevCount;
+			cin >> coefficient_rev_count;
 			cout << " Enter binary number :";
-			cin >> KilVxody;;
+			cin >> kil_vxody;;
 			return 0;
 		}
-		double Signal()
+		double signal()
 		{
 			return 0;
 		}
 	private:
-		int NumberSignInput, CoefficientRevCount, KilVxody;
+		int number_sign_input, coefficient_rev_count, kil_vxody;
 	};
 
 	class shifting_registers : public Registers
 	{
 	public:
-		virtual double Signal()
+		virtual double signal()
 		{
 			return 0;
 		}
-		virtual int Get()
+		virtual int get()
 		{
 			return 0;
 		}
@@ -215,43 +217,43 @@ class D_triggers : public Triggers
 		if (choise == 1)
 		{
 			Nounters *ptr1 = new binary_counters;
-			ptr1->Get();
-			cout << (ptr1->Signal()) << endl;
+			ptr1->get();
+			cout << (ptr1->signal()) << endl;
 		}
 		else if (choise == 2)
 		{
 			Nounters *ptr2 = new  binary_decimal_counters;
-			ptr2->Get();
-			cout << (ptr2->Signal()) << endl;
+			ptr2->get();
+			cout << (ptr2->signal()) << endl;
 		}
 		else if (choise == 3)
 		{
 			Nounters *ptr3 = new reversing_counters;
-			ptr3->Get();
-			cout << (ptr3->Signal()) << endl;
+			ptr3->get();
+			cout << (ptr3->signal()) << endl;
 		}
 		else if (choise == 4)
 		{
 			Triggers *ptr4 = new  D_triggers;
-			ptr4->Get();
-			cout << (ptr4->Signal()) << endl;
+			ptr4->get();
+			cout << (ptr4->signal()) << endl;
 		}
 		else if (choise == 5)
 		{
 			Triggers *ptr5 = new  RS_triggers;
-			ptr5->Get();
-			cout << (ptr5->Signal()) << endl;
+			ptr5->get();
+			cout << (ptr5->signal()) << endl;
 		}
 		else if (choise == 6)
 		{
 			Registers *ptr6 = new  multiplexers;
-			ptr6->Get();
-			cout << (ptr6->Signal()) << endl;
+			ptr6->get();
+			cout << (ptr6->signal()) << endl;
 		}
 		else if (choise == 7)
 		{
 			Registers *ptr7 = new  shifting_registers;
-			ptr7->Get();
+			ptr7->get();
 			cout << (ptr7->Signal()) << endl;
 		}
 		else {
