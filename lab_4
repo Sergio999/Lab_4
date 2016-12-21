@@ -5,18 +5,17 @@
 using namespace std;
 
 class Digital_elements
-{
-public:
-
+   {
+    public:
 	virtual double Signal()
-	{
-		return 0;
+	{ 
+	  return 0;
 	}
 	virtual int Get()
 	{
-		return 0;
+	  return 0;
 	}
-};
+   };
 
 class Nounters : public Digital_elements
 {
@@ -24,11 +23,11 @@ public:
 
 	virtual double Signal()
 	{
-		return 0;
+	   return 0;
 	}
 	virtual int Get()
 	{
-		return 0;
+           return 0;
 	}
 };
 
@@ -38,10 +37,10 @@ public:
 	int Get()
 	{
 		cout << "Signal number coming inlet :";
-		cin >> NumSignInput;
+		cin >> NumberSignInput;
 		cout << "coefficient of binary counter :";
-		cin >> KoefBinCount;
-		Volume = NumSignInput*KoefBinCount;
+		cin >> CoefBinCount;
+		Volume = NumberSignInput*KoefBinCount;
 		return 0;
 	}
 	double Signal()
@@ -49,7 +48,7 @@ public:
 		return Volume;
 	}
 private:
-	int NumSignInput, KoefBinCount, Volume;
+	int NumSignInput, CoefficientBinCount, Volume;
 };
 
 class binary_decimal_counters : public Nounters
@@ -58,10 +57,10 @@ public:
 	int Get()
 	{
 	cout << "Signal number coming inlet :";
-	cin >> NumSignInput1;
+	cin >> NumberSignInput1;
 	cout << "coefficient of binary counter :";
 	cin >> KoefBinDesCount;
-	Volume1 = NumSignInput1*KoefBinDesCount;
+	Volume1 = NumberSignInput1*CoefBinDesCount;
 		return 0;
 	}
    double Signal()
@@ -69,7 +68,7 @@ public:
 		return Volume1;
 	}
    private:
-	   int NumSignInput1, KoefBinDesCount, Volume1;
+	   int NumSignInput1, CoefficientBinDesCount, Volume1;
 };
 
 class  reversing_counters : public Nounters
@@ -80,18 +79,18 @@ public:
 		cout << "Signal number coming inlet :";
 		cin >> NumSignInput;
 		cout << "Coefficient of reversible counter :";
-		cin >> KoefRevCount;
+		cin >> CoefficientRevCount;
 		cout << "Entrances signals :";
-		cin >> VudZaliky;
-		Suma = (NumSignInput*KoefRevCount)*VudZaliky;
+		cin >> ViewStandings;
+		Suma = (NumberSignInput*CoefficientRevCount)*ViewStandings;
 		return 0;
 	}
 	double Signal()
 	{
-		return Suma;
+		return Sum;
 	}
 private:
-	int NumSignInput, KoefRevCount, VudZaliky, Suma;
+	int NumSignInput, CoefficientRevCount, ViewStandings, Sum;
 };
 
 class Triggers : Digital_elements
@@ -113,9 +112,9 @@ class D_triggers : public Triggers
 		int Get()
 		{
 			cout << "delay signal at the input :";
-			cin >> NumSignInput;
+			cin >> NumberSignInput;
 			cout << "Coefficient of delay in D-trigger :";
-			cin >> KoefRevCount;
+			cin >> CoefficientRevCount;
 			cout << "Number of entrances in trigger :";
 			cin >> KilVxody;;
 			Suma = (NumSignInput*KoefRevCount)*KilVxody;;
@@ -123,10 +122,10 @@ class D_triggers : public Triggers
 		}
 		double Signal()
 		{
-			return Suma;
+			return Sum;
 		}
 	private:
-		int NumSignInput, KoefRevCount, KilVxody, Suma;
+		int NumberSignInput, CoefficientRevCount, KilVxody, Sum;
 	};
 
 	class RS_triggers : public Triggers
@@ -135,20 +134,20 @@ class D_triggers : public Triggers
 		int Get()
 		{
 			cout << "delay signal at the input:";
-			cin >> NumSignInput;
+			cin >> NumberSignInput;
 			cout << "delay signals in RS-trigger :";
-			cin >> KoefRevCount;
+			cin >> CoefficientRevCount;
 			cout << "Number of entrances in trigger :";
 			cin >> KilVxody;;
-			Suma = (NumSignInput*KoefRevCount)*KilVxody;;
+			Suma = (NumberSignInput*CoefficientRevCount)*KilVxody;;
 			return 0;
 		}
 		double Signal()
 		{
-			return Suma;
+			return Sum;
 		}
 	private:
-		int NumSignInput, KoefRevCount, KilVxody, Suma;
+		int NumberSignInput, CoeficientRevCount, KilVxody, Sum;
 	};
 
 	class Registers : public Digital_elements
@@ -170,9 +169,9 @@ class D_triggers : public Triggers
 		int Get()
 		{
 			cout << " Number of entrances in multiplexor :";
-			cin >> NumSignInput;
+			cin >> NumberSignInput;
 			cout << "Number of exits in multiplexor :";
-			cin >> KoefRevCount;
+			cin >> CoefficientRevCount;
 			cout << " Enter binary number :";
 			cin >> KilVxody;;
 			return 0;
@@ -182,7 +181,7 @@ class D_triggers : public Triggers
 			return 0;
 		}
 	private:
-		int NumSignInput, KoefRevCount, KilVxody;
+		int NumberSignInput, CoefficientRevCount, KilVxody;
 	};
 
 	class shifting_registers : public Registers
